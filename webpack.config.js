@@ -39,10 +39,10 @@ module.exports = (env) => {
     common,
     {
       plugins: [
-      new webpack.NamedModulesPlugin(), ],
+        new webpack.NamedModulesPlugin(),
+      ],
     },
     parts.devServer({
-      // Customize host/port here if needed
       host: process.env.HOST,
       port: process.env.PORT,
     }),
