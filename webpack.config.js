@@ -42,6 +42,7 @@ module.exports = (env) => {
         new webpack.NamedModulesPlugin(),
       ],
     },
+    parts.loadCSS(),
     parts.devServer({
       host: process.env.HOST,
       port: process.env.PORT,

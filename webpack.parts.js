@@ -17,6 +17,20 @@ exports.devServer = function(options) {
   };
 };
 
+exports.loadCSS = function(paths) {
+  return {
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          include: paths,
+          use: ['style-loader', 'css-loader?modules'],
+        },
+      ],
+     },
+   };
+};
+
 exports.lintJavaScript = function({paths, options}) {
   return {
     module: {
