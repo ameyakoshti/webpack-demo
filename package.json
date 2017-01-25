@@ -17,6 +17,7 @@
     "html-webpack-plugin": "^2.26.0",
     "nodemon": "^1.11.0",
     "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0"
+    "webpack-dev-server": "^2.2.0",
+    "webpack-merge": "^2.4.0"
   }
 }
