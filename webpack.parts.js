@@ -67,6 +67,12 @@ exports.purifyCSS = function(paths) {
   };
 };
 
+exports.generateSourcemaps = function(type) {
+  return {
+    devtool: type
+  };
+};
+
 exports.lintJavaScript = function({paths, options}) {
   return {
     module: {

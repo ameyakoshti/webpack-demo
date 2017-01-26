@@ -37,6 +37,7 @@ module.exports = (env) => {
   if (env === 'production') {
     return merge([
       common,
+      parts.generateSourcemaps('source-map'),
       parts.extractCSS(),
       parts.purifyCSS(PATHS.app),
       parts.lintJavaScript({paths: PATHS.app}),
@@ -45,6 +46,7 @@ module.exports = (env) => {
 
   return merge([
     common,
+    parts.generateSourcemaps('eval-source-map'),
     {
       plugins: [
         new webpack.NamedModulesPlugin(),
