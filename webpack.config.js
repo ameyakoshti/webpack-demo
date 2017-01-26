@@ -31,6 +31,7 @@ module.exports = (env) => {
   if (env === 'production') {
     return merge([
       common,
+      parts.extractCSS(),
       parts.lintJavaScript({paths: PATHS.app}),
     ]);
   }

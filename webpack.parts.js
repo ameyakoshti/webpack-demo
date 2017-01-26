@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 exports.devServer = function(options) {
   return {
@@ -29,6 +30,26 @@ exports.loadCSS = function(paths) {
       ],
      },
    };
+};
+
+exports.extractCSS = function(paths) {
+  return {
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          include: paths,
+          loader: ExtractTextPlugin.extract({
+            fallbackLoader: 'style-loader',
+            loader: 'css-loader',
+          }),
+        },
+      ],
+    },
+    plugins: [
+      new ExtractTextPlugin('[name].css'),
+    ],
+  };
 };
 
 exports.lintJavaScript = function({paths, options}) {
