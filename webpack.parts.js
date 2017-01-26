@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const PurifyCSSPlugin = require('purifycss-webpack-plugin');
 
 exports.devServer = function(options) {
   return {
@@ -52,6 +53,20 @@ exports.extractCSS = function(paths) {
   };
 };
 
+exports.purifyCSS = function(paths) {
+  paths = Array.isArray(paths) ? paths : [paths];
+
+  return {
+    plugins: [
+      new PurifyCSSPlugin({
+        basePath: '/',
+        paths: paths.map(path => `${path}/*`),
+        resolveExtensions: ['.html'],
+      }),
+    ],
+  };
+};
+
 exports.lintJavaScript = function({paths, options}) {
   return {
     module: {
@@ -62,6 +77,31 @@ exports.lintJavaScript = function({paths, options}) {
           enforce: 'pre',
           loader: 'eslint-loader',
           options: options,
+        },
+      ],
+    },
+  };
+};
+
+exports.lintCSS = function(paths, rules) {
+  return {
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          include: paths,
+          enforce: 'pre',
+          loader: 'postcss-loader',
+          options: {
+            ident: 'postcss',
+            plugins: function () {
+              return [
+                require('stylelint')({
+                  rules: rules,
+                }),
+              ];
+            },
+          },
         },
       ],
     },

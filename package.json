@@ -18,9 +18,15 @@
     "extract-text-webpack-plugin": "^2.0.0",
     "html-webpack-plugin": "^2.26.0",
     "nodemon": "^1.11.0",
+    "postcss-loader": "^1.2.2",
+    "purifycss-webpack-plugin": "^2.0.3",
     "style-loader": "^0.13.1",
+    "stylelint": "^7.7.1",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0",
     "webpack-merge": "^2.4.0"
+  },
+  "dependencies": {
+    "purecss": "^0.6.2"
   }
 }

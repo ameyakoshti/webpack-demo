@@ -25,6 +25,12 @@ const common = merge([
       }),
     ],
   },
+  parts.lintCSS(
+    PATHS.app,
+    {
+      'color-hex-case': 'lower',
+    }
+  ),
 ]);
 
 module.exports = (env) => {
@@ -32,6 +38,7 @@ module.exports = (env) => {
     return merge([
       common,
       parts.extractCSS(),
+      parts.purifyCSS(PATHS.app),
       parts.lintJavaScript({paths: PATHS.app}),
     ]);
   }
