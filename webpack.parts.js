@@ -73,6 +73,33 @@ exports.generateSourcemaps = function(type) {
   };
 };
 
+exports.extractBundles = function(bundles, options) {
+  const entry = {};
+  const names = [];
+
+  bundles.forEach(({ name, entries }) => {
+    if (entries) {
+      entry[name] = entries;
+    }
+    names.push(name);
+  });
+
+  return {
+    entry,
+    plugins: [
+      new webpack.optimize.CommonsChunkPlugin(
+        Object.assign({}, options, { names })
+        // {name: 'vendor', minChunks: isVendor}
+      )
+    ]
+  };
+};
+
+// function isVendor(module, count){
+//   const userRequest = module.userRequest;
+//   return userRequest && userRequest.indexOf('node_modules') >= 0;
+// }
+
 exports.lintJavaScript = function({paths, options}) {
   return {
     module: {
