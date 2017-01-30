@@ -97,6 +97,7 @@ exports.extractBundles = function(bundles, options) {
 
 // function isVendor(module, count){
 //   const userRequest = module.userRequest;
+//   //indexOf('node_modules') is used to diff between external modules vs modules in your app lib.
 //   return userRequest && userRequest.indexOf('node_modules') >= 0;
 // }
 
