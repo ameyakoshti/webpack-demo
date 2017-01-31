@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "url": "https://github.com/donsalari/webpack-demo",
+  "homepage": "https://donsalari.github.io/webpack-demo/",
   "scripts": {
     "test:lint": "eslint . --cache",
     "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
-    "build": "webpack --env production"
+    "build": "webpack --env production",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +23,7 @@
     "eslint": "^3.14.0",
     "eslint-loader": "^1.6.1",
     "extract-text-webpack-plugin": "^2.0.0",
+    "gh-pages": "^0.12.0",
     "html-webpack-plugin": "^2.26.0",
     "nodemon": "^1.11.0",
     "postcss-loader": "^1.2.2",

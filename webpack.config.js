@@ -37,6 +37,12 @@ module.exports = (env) => {
   if (env === 'production') {
     return merge([
       common,
+      {
+        output: {
+          // Tweak this to match your GitHub project name
+          publicPath: '/webpack-demo/',
+        },
+      },
       parts.clean(PATHS.build),
       parts.loadJavaScript(PATHS.app),
       parts.extractBundles([
