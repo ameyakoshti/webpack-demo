@@ -117,6 +117,23 @@ exports.lintJavaScript = function({paths, options}) {
   };
 };
 
+exports.loadJavaScript = function(paths) {
+  return {
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          include: paths,
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true,
+          },
+        },
+      ],
+    },
+  };
+};
+
 exports.lintCSS = function(paths, rules) {
   return {
     module: {
