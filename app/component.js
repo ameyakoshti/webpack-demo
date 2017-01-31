@@ -1,4 +1,4 @@
-export default function () {
+const component = function () {
   const element = document.createElement('button');
 
   element.className = 'pure-button';
@@ -19,4 +19,13 @@ export default function () {
   // };
 
   return element;
-}
+};
+
+const treeShakingDemo = function () {
+  return 'this should get shaked out';
+};
+
+export {
+  component,
+  treeShakingDemo,
+};

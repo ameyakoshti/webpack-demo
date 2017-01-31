@@ -167,3 +167,16 @@ exports.lintCSS = function(paths, rules) {
     },
   };
 };
+
+exports.minifyJavaScript = function({ useSourceMap }) {
+  return {
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin({
+        sourceMap: useSourceMap,
+        compress: {
+          warnings: false,
+        },
+      })
+    ]
+  };
+};

@@ -45,6 +45,7 @@ module.exports = (env) => {
       },
       parts.clean(PATHS.build),
       parts.loadJavaScript(PATHS.app),
+      parts.minifyJavaScript({ useSourceMap: true }),
       parts.extractBundles([
         {
           name: 'vendor',
