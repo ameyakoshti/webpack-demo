@@ -11,6 +11,10 @@
     "build": "webpack --env production",
     "deploy": "gh-pages -d build"
   },
+  "engines": {
+    "node": ">=7.0.0 ",
+    "npm": ">=4.0.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
